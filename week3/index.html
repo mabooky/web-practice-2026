@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <title>전문가에게 문의하기</title>
+        <meta property="og:title" content="전문가에게 문의하기">
+        <meta property="og:description" content="40년 이상의 경력을 가진 전문가에게 문의하세요.">
+        <meta property="og:url" content="https://mabooky.github.io/week3/index.html">
+    </head>
+    <body>
+        <header>
+            <h1>🎓 전문가에게 문의하기</h1>
+        </header>
+        <main>
+            <h2>전문가 정보</h2>
+            <img 
+                src="https://static.ebs.co.kr/images/ebs/WAS-HOME/portal/upload/img/programinfo/person/per/1242723513396_kp9fgpCfTO.jpg" 
+                alt="전문가 에디 프로필 사진"
+                width="80"
+            >
+            <!-- inline 요소인 span을 활용하여 img 우측에 부착 -->
+            <span>이름: 에디 | 경력: 40년 이상 | 전문 분야: 소프트웨어 개발</span><br><br>
+
+            <h2>문의하기</h2>
+            <form>
+                <label for="name">이름:</label>
+                <input type="text" id="name" name="name" required autofocus><br><br>
+                
+                <label for="email">이메일:</label>
+                <input type="email" id="email" name="email" required><br><br>
+                
+                <label for="type">문의 유형:</label>
+                <select name="type" id="type">
+                    <option value="consultation">상담</option>
+                    <option value="support">지원</option>
+                    <option value="feedback">피드백</option>
+                </select><br><br>
+
+                <label for="message">문의 내용:</label><br>
+                <textarea id="message" name="message" rows="5" cols="30" required></textarea><br><br>
+
+                <input type="submit" value="보내기">
+            </form>
+        </main>
+        <footer>
+            <p>&copy; 2023 전문가 문의 사이트. 모든 권리 보유.<br>협업 문의: eddy@expert.com</p>
+        </footer>
+    </body>
+</html>
