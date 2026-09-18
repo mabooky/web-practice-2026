@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Practice 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Noto Sans KR', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, #f7971e, #ffd200);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            margin-top: 0.75rem;
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 1px;
+        }
+
+        .card-container {
+            display: flex;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 24px;
+            padding: 2.5rem 2rem;
+            width: 300px;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .card .icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .card h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .card .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
+        .card:nth-child(1) {
+            border-top: 3px solid #f7971e;
+        }
+
+        .card:nth-child(2) {
+            border-top: 3px solid #00d2ff;
+        }
+
+        footer {
+            margin-top: 4rem;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Web Practice 2026</h1>
+        <p>기초 웹개발론 실습 프로젝트</p>
+    </header>
+
+    <div class="card-container">
+        <a href="week2/" class="card">
+            <div class="icon">📄</div>
+            <h2>Week 2</h2>
+            <span class="badge">이력서</span>
+            <p>HTML 기초를 활용하여 만든 개인 이력서 페이지입니다. 자기소개, 기술 스택, 학력 및 경력사항을 확인할 수 있습니다.</p>
+        </a>
+
+        <a href="week3/" class="card">
+            <div class="icon">📬</div>
+            <h2>Week 3</h2>
+            <span class="badge">문의하기</span>
+            <p>HTML 폼 요소를 활용하여 만든 전문가 문의 페이지입니다. 이름, 이메일, 문의 유형 및 내용을 입력할 수 있습니다.</p>
+        </a>
+    </div>
+
+    <footer>
+        &copy; 2026 Web Practice. All rights reserved.
+    </footer>
+</body>
+</html>
