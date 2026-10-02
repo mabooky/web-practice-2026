@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나만의 프로필 카드 - Week 4</title>
+
+    <!-- 🔽 여기에 구글 웹 폰트 <link> 태그를 추가하세요 -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500&family=Song+Myung&display=swap');
+    </style>
+
+    <!-- 🔽 여기에 Internal Style Sheet(<style> 태그)를 작성하세요 -->
+    <style>
+        body {
+            margin: 16px;
+            font-family: 'Noto Serif KR', serif;
+        }
+
+        header {
+            margin-bottom: 32px;
+        }
+
+        .header__title {
+            margin-block: 0;
+            text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.4);
+            font-family: 'Song Myung', serif;
+            font-size: 64px;
+        }
+
+        section {
+            padding: 16px;
+            border: 2px solid rgb(255, 223, 164);
+            margin-bottom: 16px;
+            letter-spacing: 1px;
+            line-height: 2;
+            border-radius: 16px;
+            background-color: rgb(255, 252, 237);
+        }
+
+        section > p {
+            text-indent: 1em;
+        }
+        
+        .section__title {
+            margin-top: 0;
+            margin-bottom: 16px;
+
+        }
+
+        table {
+            text-align: left;
+        }
+
+        footer {
+            display: flex;
+            height: 56px;
+            background: linear-gradient(to right, rgb(255, 223, 164), rgb(255, 252, 237));
+            border-radius: 16px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        footer > small::before, footer > small::after {
+            content: "😍";
+        }
+
+        footer > small {
+            width: 300px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 class="header__title">HTML</h1>
+        <span class="header__subtitle">Hyper Text Markup Language</span>
+    </header>
+
+    <main>
+        <section>
+            <h2 class="section__title">소개</h2>
+            <p>
+                HTML이란, Hyper Text Markup Language의 약자로서 웹 페이지를 만드는
+                언어입니다. 여기서 Hyper의 사전적 의미는 "최고의", "과도한" 이라는
+                뜻으로, "Hyper Text"는 기존의 일반적인 문서보다
+                <strong>"월등한 최고의 기능을 담고 있는 문서"</strong> 라고 보시면 될
+                것 같습니다.
+            </p>
+        </section>
+
+        <section>
+            <h2 class="section__title">글꼴 태그</h2>
+            <ul>
+                <li>
+                    <em>h1 ~ h6</em>
+                    <p>
+                        웹 페이지의 제목 또는 부제목을 표현할 때 사용하며, 숫자가 작을
+                        수록 큰 제목을 표시하는 데 사용합니다.
+                    </p>
+                </li>
+                <li>
+                    <em>p</em>
+                    <p>하나의 문단을 표시할 때 사용합니다.</p>
+                </li>
+                <li>
+                    <em>em</em>
+                    <p>텍스트를 이텔릭체로 강조할 때 사용합니다.</p>
+                </li>
+                <li>
+                    <em>strong</em>
+                    <p>텍스트를 진하게 강조할 때 사용합니다.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 class="section__title">시멘틱 태그</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>요소명</th>
+                        <th>설명</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>header</td>
+                        <td>
+                            페이지에 대한 정보를 담는 태그로, 페이지 상단에 위치합니다.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>main</td>
+                        <td>
+                            문서의 body 요소의 주 콘텐츠(main content)를 정의할 때
+                            사용합니다.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>footer</td>
+                        <td>
+                            주로 저작권 정보나 서비스 제공자 정보등을 나타내며 사이트 하단에
+                            위치합니다.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <small>Copyright &copy; 기초웹개발론</small>
+    </footer>
+</body>
+
+</html>
