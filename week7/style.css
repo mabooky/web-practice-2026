@@ -1,0 +1,195 @@
+/* ===== 기본 스타일 (수정하지 않아도 됨) ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Noto Sans KR", sans-serif;
+    background-color: #f1f5f9;
+    color: #1e293b;
+    padding: 40px 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.header h1 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.header p {
+    color: #64748b;
+}
+
+/* 로딩 영역 */
+.loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    color: #64748b;
+}
+
+.spinner {
+    width: 48px;
+    height: 48px;
+}
+
+/* 카드 목록 */
+.card-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 12px;
+}
+
+.card-img {
+    height: 180px;
+    border-radius: 12px 12px 0 0;
+}
+
+.card-img img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-body h2 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.card-body p {
+    font-size: 14px;
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    background-color: #0ea5e9;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* ===== 여기부터 실습 과제 작성 ===== */
+
+/* [미션 1] transform + transition
+    카드 :hover 시 위로 떠오르기 + box-shadow */
+.card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer; /* 보너스 */
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+
+/* [미션 2] transform + transition
+    .card-img img에 :hover 시 scale(1.1) 확대
+    (.card-img에 overflow: hidden 적용으로 카드 밖 넘침 방지) */
+.card-img {
+    overflow: hidden;
+}
+
+.card-img img {
+    transition: transform 0.3s ease;
+}
+
+.card-img img:hover {
+    transform: scale(1.1);
+}
+
+
+/* [미션 3] animation
+    페이지 진입 시 카드가 아래에서 위로 페이드인
+    (opacity 속성 사용 팔요 + 카드마다 animation-delay 차등) */
+
+@keyframes fadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(96px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+.card {
+    /* animation-fill-mode 속성의 backwards 값 적용 필요 */
+    animation: fadeUp 1s ease;
+    animation-fill-mode: backwards;
+}
+
+.card:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.card:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.card:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+
+/* [미션 4] animation
+    로딩 스피너 제작
+    (원형 border + rotate, infinite linear 로 무한 회전) */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner {
+    border: 5px solid #e2e8f0;
+    border-top-color: #0ea5e9;
+    border-radius: 50%;
+    /* 애니메이션 적용 */
+    animation: spin 1s infinite linear;
+}
+
+/* [미션 5] transform + transition
+    버튼 클릭(:active) 시 scale(0.95) 로 눌리는 효과 */
+.btn {
+    transition: transform 0.1s ease;
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
