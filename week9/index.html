@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>9주차 실습 - 폼 · 콤보박스 · 모달</title>
+  <style>
+    /* ===== reset ===== */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body,
+    h1,
+    h2,
+    p,
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    /* ===== 기본 레이아웃 (수정 금지) ===== */
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: #f1f5f9;
+      color: #0f172a;
+      padding: 48px 16px;
+    }
+
+    .container {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 32px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 24px;
+    }
+
+    .field {
+      margin-bottom: 20px;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: #38bdf8;
+      color: #0f172a;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .link-btn {
+      margin-top: 16px;
+      border: none;
+      background: none;
+      color: #64748b;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    /* ===== 여기부터 실습 과제 작성 ===== */
+
+    /* [미션 1] 인풋 상태 스타일 (:focus · :disabled · .error · 오류 문구 표시) */
+    .msg {
+      display: none;
+      color: #ef4444;
+    }
+
+    input:focus {
+      border-color: #333;
+    }
+
+    input:disabled {
+      background: #e2e8f0;
+      color: #94a3b8;
+      cursor: not-allowed;
+    }
+
+    .error input {
+      border-color: #ef4444;
+    }
+
+    .error .msg {
+      display: block;
+    }
+
+    /* [미션 2] 버튼 상태 스타일 (:hover · :active · :disabled) */
+    .btn:hover {
+      background: #7dd3fc;
+    }
+
+    .btn:active {
+      background: #0284c7;
+    }
+
+    .btn:disabled {
+      background: #e2e8f0;
+      color: #94a3b8;
+      cursor: not-allowed;
+    }
+
+    /* [미션 3] 콤보박스 구조 · 목록 · 열림 상태 (relative · absolute 겹침 배치 · .open 목록 표시 · 화살표 회전) */
+    .combo {
+      position: relative;
+    }
+
+    .combo-btn {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+    }
+
+    .combo-list {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: #fff;
+      border: 1px solid #cbd5e1;
+      z-index: 10;
+    }
+
+    .combo-list li:hover {
+      background: #e0f2fe;
+    }
+
+    .combo.open .combo-list {
+      display: block;
+    }
+
+    .combo.open .combo-btn img {
+      transform: rotate(180deg);
+    }
+
+    /* [미션 4] 모달 딤드 · 박스 · 열림 상태 (position: fixed · flex 가운데 정렬 · .open 표시) */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+    }
+
+    .modal-box {
+      position: relative;
+      width: 90%;
+      max-width: 480px;
+      padding: 32px;
+      background: #fff;
+      border-radius: 16px;
+    }
+
+    .close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+    }
+
+    .modal {
+      display: none;
+    }
+
+    .modal.open {
+      display: flex;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>회원가입</h1>
+
+    <div class="field">
+      <label for="name">이름</label>
+      <input type="text" id="name" placeholder="이름을 입력하세요">
+    </div>
+
+    <!-- [미션 1] 이메일 field 에 error 클래스와 오류 문구(.msg) 추가 -->
+    <div class="field error">
+      <label for="email">이메일</label>
+      <input type="email" id="email" value="abc@jnu">
+      <p class="msg">올바른 이메일 주소를 입력하세요.</p>
+    </div>
+
+    <!-- [미션 1] 학번 input 에 disabled 속성 추가 -->
+    <div class="field">
+      <label for="student-id">학번</label>
+      <input type="text" id="student-id" value="2026000000" disabled>
+    </div>
+
+    <div class="field">
+      <label>관심 분야</label>
+      <!-- [미션 3] 여기에 div 콤보박스 작성 (.combo > .combo-btn + ul.combo-list) -->
+      <div class="combo ">
+        <div class="combo-btn">
+          선택하세요
+          <img src="arrow.svg" alt="" aria-hidden="true">
+        </div>
+        <ul class="combo-list">
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+        </ul>
+      </div>
+      <!-- 화살표는 arrow.svg 를 img 로 삽입 -->
+      <!-- .combo 에 open 클래스를 붙여 열림 상태 확인, 제출 시엔 open 클래스 없는 상태로 제출 -->
+
+    </div>
+
+    <div class="btn-row">
+      <button class="btn">가입하기</button>
+      <!-- [미션 2] 임시 저장 버튼에 disabled 속성 추가 -->
+      <button class="btn" disabled>임시 저장</button>
+    </div>
+
+    <button class="link-btn">이용약관 보기</button>
+  </div>
+
+  <!-- [미션 4] 여기에 모달 작성 (.modal > .modal-box > button.close + h2 + p) -->
+  <!-- 닫기 아이콘은 close.svg 를 button.closed안에 img로 삽입 -->
+  <!-- .modal 에 open 클래스를 붙여 열림 상태 확인, 제출 시엔 open 클래스 없는 상태로 제출 -->
+  <div class="modal ">
+    <div class="modal-box">
+      <button class="close">
+        <img src="close.svg" alt="" aria-hidden="true">
+      </button>
+      <h2>정말 가입하시겠습니까?</h2>
+      <p>가입 시 가입 비용 10,000원이 청구됩니다.</p>
+    </div>
+  </div>
+
+</body>
+
+</html>
